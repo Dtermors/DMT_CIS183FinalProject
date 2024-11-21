@@ -28,7 +28,8 @@ public class MainActivity extends AppCompatActivity {
         dbHelper = new DatabaseHelper(this);
         db = dbHelper.getReadableDatabase();
 
-        // gets Users from the database for testing/milestone 1
+        // gets Users from the database for testing/milestone 1 allows for mass testing of tables as well as allows for implementation-
+        //- of some of my practice code and testing ive been doing on the side its not pretty but it works for what it needs to do as a testing system
         getUsers();
         getGames();
         fetchRatings();
