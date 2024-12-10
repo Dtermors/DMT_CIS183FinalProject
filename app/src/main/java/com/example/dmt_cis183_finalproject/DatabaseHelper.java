@@ -22,14 +22,14 @@ public class DatabaseHelper extends SQLiteOpenHelper
     public static final String Key_Password = "Password";
     public static final String Key_Role = "Role"; // Developer / Player
 
-    private static final String Key_Game_ID = "GameID";
+    static final String Key_Game_ID = "GameID";
     public static final String Key_Title = "Title";
-    private static final String Key_Genre_ID = "GenreID";
+    static final String Key_Genre_ID = "GenreID";
     public static final String Key_Price = "Price";
-    private static final String Key_Release_Date = "ReleaseDate";
-    private static final String Key_DLC = "DLC";
+    static final String Key_Release_Date = "ReleaseDate";
+    static final String Key_DLC = "DLC";
 
-    private static final String Key_Genre_Name = "GenreName";
+    static final String Key_Genre_Name = "GenreName";
 
     // Columns for Ratings table
     private static final String Key_Rating_ID = "RatingID";
@@ -121,4 +121,12 @@ public class DatabaseHelper extends SQLiteOpenHelper
         onCreate(db);
     }
 
+    public boolean addGenre(String genreName) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(Key_Genre_Name, genreName);  // Add the genre name
+
+        long result = db.insert(Table_Genres, null, values);
+        return result != -1;  // Return true if the genre was added successfully
+    }
 }
